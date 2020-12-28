@@ -1,0 +1,60 @@
+{
+  "name": "test-oclif-stdin",
+  "description": "testing oclif",
+  "version": "0.0.0",
+  "author": "Oscar Funes @osukaa",
+  "bin": {
+    "test": "./bin/run"
+  },
+  "bugs": "https://github.com/osukaa/test-oclif-stdin/issues",
+  "dependencies": {
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "@oclif/plugin-help": "^3.2.1",
+    "rereadable-stream": "^1.4.4",
+    "split2": "^3.2.2",
+    "stream-cache": "0.0.2"
+  },
+  "devDependencies": {
+    "@hapi/hapi": "^20.0.3",
+    "@oclif/dev-cli": "^1.26.0",
+    "@oclif/test": "^1.2.8",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-oclif": "^3.1.0",
+    "globby": "^10.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/osukaa/test-oclif-stdin",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "test",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "osukaa/test-oclif-stdin",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint .",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
